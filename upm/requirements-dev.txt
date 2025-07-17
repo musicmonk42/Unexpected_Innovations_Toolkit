@@ -1,0 +1,15 @@
+# Development and Testing Dependencies
+# This file should be used to set up a development environment.
+# It includes all core dependencies plus tools for testing, linting, and formatting.
+
+# Include all core application dependencies
+-r requirements.txt
+
+# Dev/Testing Tools
+pytest==8.4.1
+pytest-mock==3.14.1
+pytest-cov==6.2.1
+black==25.1.0
+flake8==7.3.0
+mypy==1.16.1
+concurrent-log_handler==0.9.25

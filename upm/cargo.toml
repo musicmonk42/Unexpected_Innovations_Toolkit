@@ -1,0 +1,22 @@
+# SECURITY BEST PRACTICES:
+# 1. All dependencies are pinned to exact versions (using =) to ensure deterministic builds and prevent supply chain attacks.
+# 2. Regularly run `cargo audit` on this file to check for known vulnerabilities in dependencies.
+# 3. Document any high or critical CVEs found by audit tools in a vulnerability disclosure report.
+
+[package]
+name = "upm-resolver-rs"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+name = "upm_resolver_rs" # This is the name that Python will import (e.g., `import upm_resolver_rs`)
+crate-type = ["cdylib"] # Required for Python extensions
+
+[dependencies]
+pyo3 = { version = "=0.22", features = ["extension-module"] } # PyO3 for Python bindings
+serde = { version = "=1.0", features = ["derive"] } # For serialization/deserialization
+serde_json = "=1.0" # For JSON serialization/deserialization
+# serde_yaml = "=0.9" # Uncomment if you need to parse YAML directly in Rust
+petgraph = "=0.6" # For building and traversing dependency graphs
+semver = { version = "=1.0", features = ["serde"] } # For semantic versioning parsing and comparison
+anyhow = "=1.0" # For simplified error handling
